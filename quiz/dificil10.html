@@ -1,39 +1,47 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="estilo.css" />
-    <title>Nível Fácil</title>
+    <title>Nível Difícil</title>
   </head>
   <body>
-    <div class="facil">
+    <div class="difícil">
       <div class="botoes">
         <button type="button" onclick="window.location.href='index.html'">
           Voltar
         </button>
       </div>
-      <h1>Quiz Nível Fácil</h1>
       <form id="quiz-form" onsubmit="return verificarResposta(event)">
+        <h1>Quiz Nível difícil</h1>
         <div class="questao">
-          <p>1. Qual é a capital da Itália?</p>
+          <p>
+            10. Qual papa renascentista encomendou a pintura do teto da Capela
+            Sistina a Michelangelo?
+          </p>
           <label class="option-label"
-            ><input type="radio" name="resposta" value="true" /> Roma</label
+            ><input type="radio" name="resposta" value="true" /> Júlio II</label
           ><br />
           <label class="option-label"
-            ><input type="radio" name="resposta" value="false" /> Milão</label
+            ><input type="radio" name="resposta" value="false" /> Leão X</label
           ><br />
           <label class="option-label"
-            ><input type="radio" name="resposta" value="false" /> Veneza</label
+            ><input type="radio" name="resposta" value="false" /> Inocêncio
+            III</label
           ><br />
           <label class="option-label"
-            ><input type="radio" name="resposta" value="false" /> Nápoles</label
+            ><input type="radio" name="resposta" value="false" /> Alexandre VI</label
           ><br />
-          <button type="submit" id="submit-btn">Enviar</button>
-          <button type="submit"  onclick="window.location.href='facil2.html'">
-            Próximo
+          <button type="button" onclick="window.location.href='dificil9.html'">
+            Anterior
           </button>
+          <button type="submit" id="submit-btn">Verificar</button>
+          <button
+           type="button" onclick="window.location.href='fim.html'"
+            >Enviar</button>
         </div>
+        <script src="script.js"></script>
         <div id="resultado"></div>
         <script>
           function verificarResposta(event) {

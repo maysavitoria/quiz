@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="estilo.css">
+    <title>Nível Fácil</title>
+</head>
+<body>
+    <div class="facil">
+       <div class="botoes">
+       <button type="button" onclick="window.location.href='index.html'">Voltar</button>
+       </div>
+       <h1>Quiz Nível Fácil</h1>
+        <form id="quiz-form" onsubmit="return verificarResposta(event)">
+            <div class="questao">
+              <p>10. Qual destes eventos esportivos é popular na Itália?</p>
+              <label class="option-label"><input type="radio" name="resposta" value="Roma">  Tour de France</label><br>
+              <label class="option-label"><input type="radio" name="resposta" value="Milão"> Fórmula 1</label><br>
+              <label class="option-label"><input type="radio" name="resposta" value="Veneza"> Giro d’Italia</label><br>
+              <label class="option-label"><input type="radio" name="resposta" value="Nápoles"> Copa América</label><br>
+                <button type="submit" id="submit-btn">Enviar</button>
+                <button type="button" onclick="window.location.href='fim.html'"> Finalizar</button>
+            </div>
+            <script>
+                function verificarResposta(event) {
+                    event.preventDefault();
+                    const form = document.getElementById("quiz-form");
+                    const radios = form.querySelectorAll('input[name="resposta"]');
+                    const resultado = document.getElementById("resultado");
+                    let selecionado = false;
+                    let correta = false;
+
+                    for (const radio of radios) {
+                        if (radio.checked) {
+                            selecionado = true;
+                            correta = radio.value === "true";
+                            break;
+                        }
+                    }
+
+                    if (!selecionado) {
+                        resultado.innerText = "Por favor, selecione uma opção.";
+                        resultado.style.color = "black";
+                        return false;
+                    }
+
+                    if (correta) {
+                        resultado.innerText = "Resposta correta!";
+                        resultado.style.color = "green";
+                        localStorage.setItem('pontuacao', 1);
+                    } else {
+                        resultado.innerText = "Resposta incorreta.";
+                        resultado.style.color = "red";
+                    }
+
+
+                    for (const radio of radios) {
+                        radio.disabled = true;
+                    }
+                    document.getElementById("submit-btn").disabled = true;
+
+                    return false;
+                }
+            </script>
+        </form>
+  </div>
+</body>
+</html>

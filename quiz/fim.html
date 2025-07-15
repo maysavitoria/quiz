@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="estilo.css" />
+    <title>Quiz</title>
+  </head>
+  <body>
+    <div class="bemvindo">
+         <h1>Italy Quiz</h1>
+      <h2>Quiz finalizado!</h2>
+         <p id="pontuacao"></p>
+      <script>
+        pontos = localStorage.getItem('pontuacao')
+        document.getElementById("pontuacao").innerText = `Parabéns por completar o quiz! Você respondeu corretamente a ${pontos} pergunta(s)`</script>
+      <h3>Deseja jogar novamente?</h3>
+      <div class="botoes">
+        <button type="button" onclick="window.location.href='index.html'">
+          Sim
+        </button>
+        <button type="button" onclick="window.location.href='index.html'">
+          Não
+        </button>
+      </div>
+    </div>
+  </body>
+</html>

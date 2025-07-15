@@ -1,26 +1,91 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="estilo.css">
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="estilo.css" />
     <title>Nível Difícil</title>
-</head>
-<body>
-    <div class="dificil">
-        <div class="botoes">
-        <button type="button" onclick="window.location.href='index.html'">Voltar</button>
+  </head>
+  <body>
+    <div class="difícil">
+      <div class="botoes">
+        <button type="button" onclick="window.location.href='index.html'">
+          Voltar
+        </button>
+      </div>
+      <form id="quiz-form" onsubmit="return verificarResposta(event)">
+        <h1>Quiz Nível difícil</h1>
+        <div class="questao">
+          <p>1.Em que cidade italiana está localizada a Galeria Uffizi?</p>
+          <label class="option-label">
+            <input type="radio" name="resposta" value="false" />
+            Roma </label
+          ><br />
+
+          <label class="option-label">
+            <input type="radio" name="resposta" value="false" />
+            Milão </label
+          ><br />
+
+          <label class="option-label">
+            <input type="radio" name="resposta" value="true" />
+            Florença </label
+          ><br />
+
+          <label class="option-label">
+            <input type="radio" name="resposta" value="false" />
+            Nápoles </label
+          ><br />
+
+          <button type="submit" id="submit-btn">Enviar</button>
+          <button type="button" onclick="window.location.href='dificil2.html'">
+            Próximo
+          </button>
         </div>
-        <h1>Quiz Nível Difícil</h1>
-        <form id="quizForm">
-            <div class="questao">
-                <p>1.?</p>
-                <label><input type="radio" name="q1" value=""> </label><br>
-                <label><input type="radio" name="q1" value=""> </label><br>
-                <label><input type="radio" name="q1" value=""> </label><br>
-                <label><input type="radio" name="q1" value=""> </label><br>
-                <div class="botao">Próximo</div> 
-            </div>   
+        <script src="script.js"></script>
+        <div id="resultado"></div>
+        <script>
+          function verificarResposta(event) {
+            event.preventDefault();
+            const form = document.getElementById("quiz-form");
+            const radios = form.querySelectorAll('input[name="resposta"]');
+            const resultado = document.getElementById("resultado");
+            let selecionado = false;
+            let correta = false;
+
+            for (const radio of radios) {
+              if (radio.checked) {
+                selecionado = true;
+                correta = radio.value === "true";
+                break;
+              }
+            }
+
+            if (!selecionado) {
+              resultado.innerText = "Por favor, selecione uma opção.";
+              resultado.style.color = "black";
+              return false;
+            }
+
+            if (correta) {
+              resultado.innerText = "Resposta correta!";
+              resultado.style.color = "green";
+              localStorage.setItem('pontuacao', 1);
+            } else {
+              resultado.innerText = "Resposta incorreta.";
+              resultado.style.color = "red";
+            }
+
+
+            for (const radio of radios) {
+              radio.disabled = true;
+            }
+            document.getElementById("submit-btn").disabled = true;
+
+            return false;
+          }
+        </script>
+      </form>
     </div>
-</body>
+  </body>
 </html>

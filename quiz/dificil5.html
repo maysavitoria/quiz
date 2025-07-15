@@ -4,36 +4,51 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="estilo.css" />
-    <title>Nível Fácil</title>
+    <title>Nível Difícil</title>
   </head>
   <body>
-    <div class="facil">
+    <div class="difícil">
       <div class="botoes">
         <button type="button" onclick="window.location.href='index.html'">
           Voltar
         </button>
       </div>
-      <h1>Quiz Nível Fácil</h1>
       <form id="quiz-form" onsubmit="return verificarResposta(event)">
+        <h1>Quiz Nível difícil</h1>
         <div class="questao">
-          <p>1. Qual é a capital da Itália?</p>
-          <label class="option-label"
-            ><input type="radio" name="resposta" value="true" /> Roma</label
+          <p>
+            5. Qual é o nome do arquiteto que projetou a Basílica de São Pedro
+            no Vaticano?
+          </p>
+          <label class="option-label">
+            <input type="radio" name="resposta" value="false" />
+            Bernini </label
           ><br />
-          <label class="option-label"
-            ><input type="radio" name="resposta" value="false" /> Milão</label
+
+          <label class="option-label">
+            <input type="radio" name="resposta" value="false" />
+            Michelangelo </label
           ><br />
-          <label class="option-label"
-            ><input type="radio" name="resposta" value="false" /> Veneza</label
+
+          <label class="option-label">
+            <input type="radio" name="resposta" value="true" />
+            Bramante </label
           ><br />
-          <label class="option-label"
-            ><input type="radio" name="resposta" value="false" /> Nápoles</label
+
+          <label class="option-label">
+            <input type="radio" name="resposta" value="flase" />
+            Palladio </label
           ><br />
+
+          <button type="button" onclick="window.location.href='dificil4.html'">
+            Anterior
+          </button>
           <button type="submit" id="submit-btn">Enviar</button>
-          <button type="submit"  onclick="window.location.href='facil2.html'">
+          <button type="button" onclick="window.location.href='dificil6.html'">
             Próximo
           </button>
         </div>
+        <script src="script.js"></script>
         <div id="resultado"></div>
         <script>
           function verificarResposta(event) {
